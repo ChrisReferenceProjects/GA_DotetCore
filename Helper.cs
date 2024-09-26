@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 namespace Surfrider {
 
 public static class Helper {
-    // https://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-net
+    
         private static string GetKeyVaultConnectionString(string secretName)
         {
 
@@ -20,14 +20,36 @@ public static class Helper {
         }
         public static string GetConnectionString()
         {
-            if (Environment.GetEnvironmentVariable("AZURE_FUNCTIONS_ENVIRONMENT") != "Local")
-                return GetKeyVaultConnectionString("db-plastico-dev-connectionstring");
-            else
+             
                 return Environment.GetEnvironmentVariable("postgre_connection");
         }
         // I add another useless code line
         public static void DoNothing(){
             Environment.GetEnvironmentVariable("postgre_connection");
+            int i = 0;
+            while(i< 100){
+                // toto
+            }
+        }
+        public static int ComputeWithSomeRecursion(int num, int inc)
+        {
+            num = num * ComputeWithSomeRecursion(num, inc-1);
+            for(int i = 10; i < 10; i++){}
+            return 2*num;
+        }
+        public static void DoNothingAgain(){
+           // https://rules.sonarsource.com/csharp/type/Bug/RSPEC-3984
+            int x = -1;
+            if (x < 0)
+            {
+                new ArgumentException("x must be nonnegative");
+            }
+            
+            Environment.GetEnvironmentVariable("postgre_connection");
+            int i = 0;
+            while(i< 100){
+                // toto
+            }
         }
 }
 }
